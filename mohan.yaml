@@ -13,6 +13,6 @@
     ansible.builtin.debug: 
       msg: "the result is {{result}}"
   - name: creating the user if not exisit 
-    ansible.buitlin.user: 
+    ansible.builtin.user: 
       name: "{{user}}"
     when: result.rc !=0 
