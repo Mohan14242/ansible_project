@@ -15,7 +15,7 @@
   - name: creating the user if not exisit 
     ansible.builtin.debug: 
       msg: "the user is exists"
-    when: result.rc =0
+    when: result.rc ==0
     ignore_errors: True
   - name: creating the user 
     become: yes
