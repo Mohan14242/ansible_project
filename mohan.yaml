@@ -9,9 +9,10 @@
     ansible.builtin.debug:
       msg: "the output is {{outout}}"
   - name: creating the user
-    ansible.builtin.debug:
-      msg: "creating the user is "
+    ansible.builtin.user:
+      name: mohan
     when: outout.rc !=0
+
    
      
     
