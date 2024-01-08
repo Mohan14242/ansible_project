@@ -18,6 +18,7 @@
     when: result.rc =0
     ignore_errors: True
   - name: creating the user 
+    become: yes
     ansible.builtin.user:
       name: "{{user}}"
     when: result.rc !=0
