@@ -1,21 +1,18 @@
-- name: first ansible play book 
+- name: creating the user that is not exisist
   hosts: mongodb
-  tasks:
-  - name: checking the user is exixst or not
-    ansible.builtin.command: id mohan 
-    register: outout
-    ignore_errors: True
-  - name: printing the variables 
-    ansible.builtin.debug:
-      msg: "the output is {{outout}}"
-  - name: creating the user
-    become: yes
-    ansible.builtin.user:
-      name: mohan
-    when: outout.rc !=0
-
-   
-     
-    
-
-  
+  vars_prompt:
+    - name: user
+      prompt: "please enter the user do you want to create"
+      private: False 
+  tasks: 
+  - name : checking the use exist or not 
+    ansible.buitlin.command: id {{user}}
+    register: result
+    ignore_errors: True 
+  - name: pritngi the useer 
+    ansible.builtin.debug: 
+      msg: "the result is {{result}}"
+  - name: creating the user if not exisit 
+    ansible.buitlin.user: 
+      name: {{user}}
+    when: result.rc !=0 
