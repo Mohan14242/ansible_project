@@ -14,5 +14,5 @@
       msg: "the result is {{result}}"
   - name: creating the user if not exisit 
     ansible.buitlin.user: 
-      name: {{user}}
+      name: "{{user}}"
     when: result.rc !=0 
