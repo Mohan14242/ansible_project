@@ -5,8 +5,8 @@
       prompt: "please enter the user do you want to create"
       private: False 
   tasks: 
-  - name : checking the use exist or not 
-    ansible.buitlin.command: id {{user}}
+  - name: checking the use exist or not 
+    ansible.builtin.command: id {{user}}
     register: result
     ignore_errors: True 
   - name: pritngi the useer 
