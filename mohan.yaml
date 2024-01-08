@@ -16,6 +16,7 @@
     ansible.builtin.debug: 
       msg: "the user is exists"
     when: result.rc =0
+    ignore_errors: True
   - name: creating the user 
     ansible.builtin.user:
       name: "{{user}}"
