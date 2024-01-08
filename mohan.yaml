@@ -4,10 +4,10 @@
   - name: checking the user is exixst or not
     ansible.builtin.command: id mohan 
     register: outout
+    ignore_errors: True
   - name: printing the variables 
     ansible.builtin.debug:
       msg: "the output is {{outout}}"
-    ignore_errors: True
   - name: creating the user
     ansible.builtin.debug:
       msg: "creating the user is "
